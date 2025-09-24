@@ -29,6 +29,7 @@ class BootstrapTradingGUI:
     def set_window_icon(self):
         """设置窗口图标 - 支持多种格式和打包后运行"""
         import sys
+        import platform
 
         # 获取正确的路径（支持打包后的exe）
         if getattr(sys, 'frozen', False):
@@ -38,40 +39,54 @@ class BootstrapTradingGUI:
             # 如果是普通Python运行
             application_path = os.path.dirname(os.path.abspath(__file__))
 
-        # 尝试不同的图标文件
-        icon_files = [
-            os.path.join(application_path, "faviconV2.ico"),
-            os.path.join(application_path, "icon.ico"),
-            os.path.join(application_path, "faviconV2.png"),
-            "faviconV2.ico",
-            "icon.ico",
-            "faviconV2.png"
-        ]
+        # Windows系统优先使用ICO格式
+        if platform.system() == 'Windows':
+            # 优先级顺序：faviconV2.ico > icon.ico
+            icon_files = [
+                os.path.join(application_path, "faviconV2.ico"),
+                os.path.join(application_path, "icon.ico"),
+                "faviconV2.ico",
+                "icon.ico"
+            ]
+        else:
+            # 其他系统使用PNG格式
+            icon_files = [
+                os.path.join(application_path, "faviconV2.png"),
+                "faviconV2.png",
+                os.path.join(application_path, "faviconV2.ico"),
+                "faviconV2.ico"
+            ]
 
+        icon_set = False
         for icon_file in icon_files:
             if os.path.exists(icon_file):
                 try:
                     if icon_file.endswith('.ico'):
                         # Windows平台使用ico文件
-                        self.root.iconbitmap(icon_file)
-                        print(f"已设置图标: {icon_file}")
-                        return
+                        self.root.iconbitmap(default=icon_file)
+                        # 设置任务栏图标（Windows特有）
+                        self.root.wm_iconbitmap(icon_file)
+                        print(f"✅ 已设置图标: {icon_file}")
+                        icon_set = True
+                        break
                     elif icon_file.endswith('.png'):
                         # 使用PNG作为备选
                         photo = tk.PhotoImage(file=icon_file)
-                        self.root.iconphoto(False, photo)
-                        print(f"已设置图标: {icon_file}")
-                        return
+                        self.root.iconphoto(True, photo)
+                        print(f"✅ 已设置图标: {icon_file}")
+                        icon_set = True
+                        break
                 except Exception as e:
-                    print(f"设置图标失败 {icon_file}: {e}")
+                    print(f"⚠️ 设置图标失败 {icon_file}: {e}")
                     continue
 
-        print("未找到图标文件，使用默认图标")
+        if not icon_set:
+            print("❌ 未找到图标文件，使用默认图标")
 
     def __init__(self):
         # 创建主窗口，使用darkly主题（深色主题）
         self.root = ttk.Window(
-            title="AsterDex 对冲交易系统",
+            title="onehopeA9的对冲工具",
             themename="superhero",  # 可选: darkly, cyborg, vapor, solar, superhero
             size=(1700, 1000),
             resizable=(True, True)
@@ -220,7 +235,7 @@ class BootstrapTradingGUI:
 
         title_label = ttk.Label(
             title_frame,
-            text="🚀 AsterDex 对冲交易系统",
+            text="🚀 onehopeA9的对冲工具",
             font=("Microsoft YaHei UI", 16, "bold")
         )
         title_label.pack(side=LEFT, padx=10)
@@ -699,9 +714,9 @@ class BootstrapTradingGUI:
             "account2": {"name": "账户2", "api_key": "", "api_secret": ""},
             "trading": {
                 "symbol": "ETHUSDT",
-                "leverage": 100,  # 与实际配置文件保持一致
+                "leverage": 20,  # 与实际配置文件保持一致
                 "usdt_amount": 300,
-                "wait_seconds": 300,  # 与实际配置文件保持一致
+                "wait_seconds": 60,  # 与实际配置文件保持一致
                 "max_trades": 10,  # 与实际配置文件保持一致
                 "order_type": "MARKET",
                 "position_side": "BOTH"

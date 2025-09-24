@@ -57,7 +57,7 @@ class TradingUI:
     def generate_layout(self):
         # 创建标题面板
         title_panel = Panel(
-            Text("AsterDex 对冲交易系统", justify="center", style="bold white"),
+            Text("onehopeA9的对冲工具", justify="center", style="bold white"),
             style="blue",
         )
 

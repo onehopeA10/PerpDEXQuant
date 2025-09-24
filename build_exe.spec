@@ -57,5 +57,6 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='faviconV2.ico'  # 使用图标
+    icon='faviconV2.ico',  # 使用图标
+    version='version_info.txt'  # 添加版本信息
 )
