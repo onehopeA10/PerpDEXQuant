@@ -1,0 +1,14 @@
+rich>=13.7.0 
+customtkinter==5.2.2
+tkinter-tooltip==2.2.0
+requests==2.31.0
+Pillow==10.2.0
+pyinstaller==6.3.0
+# 打包依赖
+pyinstaller>=5.0
+auto-py-to-exe  # 可选：图形界面打包工具
+
+# 运行依赖
+ttkbootstrap>=1.10.0
+requests>=2.25.0
+Pillow>=9.0.0

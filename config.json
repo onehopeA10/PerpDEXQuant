@@ -1,0 +1,23 @@
+{
+  "accounts": [
+    {
+      "name": "账号1",
+      "api_key": "",
+      "api_secret": ""
+    },
+    {
+      "name": "账号2",
+      "api_key": "",
+      "api_secret": ""
+    }
+  ],
+  "trading": {
+    "symbol": "ETHUSDT",
+    "usdt_amount": 600.0,
+    "position_side": "BOTH",
+    "order_type": "MARKET",
+    "leverage": 20,
+    "wait_seconds": 601,
+    "max_trades": 100
+  }
+}
