@@ -195,6 +195,8 @@ pyinstaller --onefile --windowed --name "onehopeA9的对冲工具" --icon=favico
 
 ---
 
+## 都看到这了，可以给个关注么 https://x.com/onehopeA9
+
 **免责声明**：本软件仅供学习研究使用，交易有风险，使用需谨慎。用户应自行承担使用本软件产生的所有风险和责任。
 
 **版权说明**：本项目为开源软件，欢迎学习和改进。
