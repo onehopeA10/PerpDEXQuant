@@ -1,5 +1,16 @@
 # onehopeA9的对冲工具 使用说明
 
+第二季，官方明确抓女巫，请大家合理使用，过度使用，得不偿失。
+
+欢迎不差返佣的走我的链接：https://www.asterdex.com/zh-CN/referral/28020d  
+要么还是别走链接 直接转账吧。 开源不易，感谢支持。
+
+给不会程序的朋友已经打包成exe了，放在dist目录下，下载后配置好就行，不要修改用户名！！
+api申请在 更多下面
+
+EVM:0xbac0e062e2615f67b1d2eaa8fc34a7e52dcf13cc
+SOL:643sqQznYoH9iPgACyMPVL1cvSdnEH9kgATWHpAZmfdS 
+
 ## 🚀 功能特点
 
 - 🎨 **现代化界面**：基于ttkbootstrap的美观UI设计
