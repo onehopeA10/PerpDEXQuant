@@ -25,6 +25,11 @@ import queue
 # 导入原有的交易逻辑
 from aster_trading import AsterDexAPI
 
+# 导入新增的模块
+from log_manager import log_manager
+from trade_history import trade_history_manager, TradeRecord
+from risk_manager import risk_manager
+
 class BootstrapTradingGUI:
     def set_window_icon(self):
         """设置窗口图标 - 支持多种格式和打包后运行"""
