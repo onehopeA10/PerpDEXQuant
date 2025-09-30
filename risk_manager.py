@@ -310,9 +310,10 @@ class RiskManager:
         """计算胜率"""
         try:
             # 这里需要从交易历史中获取数据
-            # 暂时返回模拟数据
+            # 暂时返回模拟数据，实际应该从 trade_history_manager 获取
             return 65.0
-        except:
+        except Exception as e:
+            print(f"计算胜率失败: {e}")
             return 0.0
     
     def calculate_profit_factor(self) -> float:
